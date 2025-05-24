@@ -11,7 +11,7 @@ import com.geby.shoepay.data.models.Shoe
 import com.geby.shoepay.databinding.ActivityBookListBinding
 import com.geby.shoepay.ui.auth.SignInActivity
 import com.geby.shoepay.ui.detail.DetailShoeDialogFragment
-import com.geby.shoepay.ui.payment.PaymentHistoryActivity
+import com.geby.shoepay.ui.profile.ProfileActivity
 import com.geby.shoepay.utilities.Constants
 import com.google.firebase.auth.FirebaseAuth
 
@@ -28,7 +28,7 @@ class ShoesListActivity : AppCompatActivity() {
         enableEdgeToEdge()
         checkUser()
         setupShoesList()
-        showHistory()
+        gotoProfile()
     }
 
     private fun setupShoesList() {
@@ -58,17 +58,17 @@ class ShoesListActivity : AppCompatActivity() {
         dialog.show(supportFragmentManager, "DetailShoeDialog")
     }
 
+    private fun gotoProfile() {
+        binding.btnProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+    }
+
 
     private fun checkUser() {
         if (FirebaseAuth.getInstance().currentUser == null) {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
-        }
-    }
-
-    private fun showHistory() {
-        binding.btnHistory.setOnClickListener {
-            startActivity(Intent(this, PaymentHistoryActivity::class.java))
         }
     }
 }

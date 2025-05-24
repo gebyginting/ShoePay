@@ -1,12 +1,13 @@
 package com.geby.shoepay.ui.auth
 
-import com.geby.shoepay.utilities.ResultState
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.geby.shoepay.databinding.ActivitySignUpBinding
+import com.geby.shoepay.utilities.ResultState
 import com.geby.shoepay.viewmodel.AuthViewModel
 import com.geby.shoepay.viewmodel.ViewModelFactory
 
@@ -20,7 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        enableEdgeToEdge()
         signUp()
         goToSignIn()
     }

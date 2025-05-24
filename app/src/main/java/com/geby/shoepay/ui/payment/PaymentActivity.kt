@@ -212,14 +212,6 @@ class PaymentActivity : AppCompatActivity() {
         )
     }
 
-//    private fun logout() {
-//        binding.btnLogout.setOnClickListener {
-//            FirebaseAuth.getInstance().signOut() // 1. Logout Firebase
-//            userPreference.clear()           // 2. Hapus data preferensi
-//            startActivity(Intent(this, SignInActivity::class.java)) // 3. Kembali ke login
-//            finish() // agar tidak bisa balik pakai tombol back
-//        }
-//    }
 }
 
 

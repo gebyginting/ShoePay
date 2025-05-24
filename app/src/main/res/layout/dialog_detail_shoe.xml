@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_dialog_bg"
+    android:padding="12dp"
+    android:gravity="center"
+    android:layout_marginHorizontal="16dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgShoe"
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/adidas_superstar"
+        app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+    <TextView
+        android:id="@+id/txtShoeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:text="Shoe Name"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtShoePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shoe Price"
+        android:textSize="16sp"
+        android:textColor="@color/red"/>
+
+    <LinearLayout
+        android:id="@+id/quantityLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginVertical="16dp">
+
+        <ImageButton
+            android:id="@+id/btnMinus"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_minus"
+            android:paddingStart="3dp"
+            android:paddingTop="2dp"
+            android:background="@drawable/add_quantity_btn"
+            android:contentDescription="Tambah jumlah"
+            />
+
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="center"
+            android:text="1" />
+
+        <ImageButton
+            android:id="@+id/btnPlus"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_plus"
+            android:background="@drawable/add_quantity_btn"
+            android:contentDescription="Tambah jumlah"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnBuy"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Beli Sekarang" />
+</LinearLayout>

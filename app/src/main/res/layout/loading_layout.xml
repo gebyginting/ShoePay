@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    Progress Bar-->
+<LinearLayout android:id="@+id/progressBar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:elevation="20dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:indeterminate="true" />
+
+    <TextView
+        android:id="@+id/tvLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sedang proses"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coba lagi"
+        android:textSize="16dp"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:backgroundTint="#000000"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

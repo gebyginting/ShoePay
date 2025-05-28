@@ -2,7 +2,9 @@ package com.geby.shoepay.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.geby.shoepay.databinding.ActivityProfileBinding
 import com.geby.shoepay.ui.auth.SignInActivity
@@ -24,7 +26,13 @@ class ProfileActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         userPreference = UserPreference(this)
 
+        setupProfile()
         setupButtons()
+    }
+
+    private fun setupProfile() {
+        binding.txtName.text = userPreference.getName()
+        binding.txtEmail.text = userPreference.getEmail()
     }
 
     private fun setupButtons() {
@@ -33,11 +41,31 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.btnLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            userPreference.clear()
-            val intent = Intent(this, SignInActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+            showLogoutConfirmationDialog()
         }
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Konfirmasi Logout")
+            .setMessage("Apakah Anda yakin ingin logout?")
+            .setPositiveButton("Logout") { _, _ ->
+                // Tampilkan loading
+                binding.includeLoadingLayout.progressBar.visibility = View.VISIBLE
+                // Simulasi delay logout
+                binding.root.postDelayed({
+                    FirebaseAuth.getInstance().signOut()
+                    userPreference.clear()
+
+                    // Sembunyikan loading
+                    binding.includeLoadingLayout.btnRetry.visibility = View.GONE
+
+                    val intent = Intent(this, SignInActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }, 1500)
+            }
+            .setNegativeButton("Batal", null)
+            .show()
     }
 }

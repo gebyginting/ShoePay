@@ -65,7 +65,7 @@ To see the full list, refer to the `build.gradle.kts` and `libs.versions.toml`.
 
 1. **Clone this repository**
     ```bash
-    git clone https://github.com/your-username/shoe-store-app.git
+    git clone https://github.com/gebyginting/shoe-store-app.git
     cd shoe-store-app
     ```
 
